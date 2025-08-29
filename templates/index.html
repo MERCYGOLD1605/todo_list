@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!DOCTYPE html>
+<html>
+<head>
+    <title>Task Manager</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .completed { text-decoration: line-through; color: gray; }
+        .task { margin: 5px 0; }
+        button { margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Task Manager</h1>
+
+    <form action="/add" method="POST">
+        <input type="text" name="task" placeholder="Enter task" required>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h2>Tasks</h2>
+    <ul>
+        {% for task in tasks %}
+        <li class="task {% if task.completed %}completed{% endif %}">
+            {{ loop.index }}. {{ task.task }}
+            {% if not task.completed %}
+                <a href="/complete/{{ loop.index0 }}"><button>Mark Completed</button></a>
+            {% endif %}
+            <a href="/delete/{{ loop.index0 }}"><button>Delete</button></a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+</title>
+</head>
+<body>
+
+</body>
+</html>
